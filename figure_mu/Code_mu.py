@@ -101,11 +101,9 @@ def initialize_parameters(hyper_params):
         beta_=Sample_beta(a_beta, b_beta)    
     betaf=Sample_betaf(a_betaf, b_betaf)
     while alpha_>beta_:
-        print("error1")
         alpha_=Sample_alpha(a_alpha, b_alpha)
         beta_=Sample_beta(a_beta, b_beta)
     while beta_>betaf:
-        print("error2")
         betaf=Sample_betaf(a_betaf, b_betaf)
     gama_=Sample_gama(a_gama,b_gama)
     theta_0_=Sample_theta0(a_teta0, b_teta0)
@@ -390,7 +388,6 @@ def Sample_gama(a_gama,b_gama):
             gama_=round(i,3)
             return gama_  
     if not(i>0.07):
-        np.savez('gama_.npz',i)
         return -1.0
     else:
         return -2.0           
@@ -449,11 +446,9 @@ def initialize_parameters(hyper_params):
         beta_=Sample_beta(a_beta, b_beta)    
     betaf=Sample_betaf(a_betaf, b_betaf)
     while alpha_>beta_:
-        print("error1")
         alpha_=Sample_alpha(a_alpha, b_alpha)
         beta_=Sample_beta(a_beta, b_beta)
     while beta_>betaf:
-        print("error2")
         betaf=Sample_betaf(a_betaf, b_betaf)
     gama_=Sample_gama(a_gama,b_gama)
     theta_0_=Sample_theta0(a_teta0, b_teta0)
@@ -498,13 +493,7 @@ def R_(G,X,params,F):
                     R[i,t]=2
                 else:    
                     R[i,t]=3
-    return R
-
-
-
-
-    
-
+    return R   
 
 # Gibbs sampling to obtain X, as new sample of posterior distribution:
 def Calculate_X(pos_probs,K,X,G,F,Y,params,P):

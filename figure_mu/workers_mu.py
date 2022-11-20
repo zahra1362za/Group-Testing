@@ -1,4 +1,3 @@
-print("hi im executing")
 # import neccessary libraries
 import numpy as np
 import random
@@ -36,15 +35,13 @@ if os.path.exists('YF.npy'):
     YF = np.load('YF.npy')
 if os.path.exists('F.npy'):
     F = np.load('F.npy')
-if os.path.exists('Y.npy'):
-    Y = np.load('Y.npy')
 if os.path.exists('X.npy'):
     X_True = np.load('X.npy')
 n,T=X_True.shape[0],X_True.shape[1]
 
 unique_rows = np.unique(F, axis=0)    
 #function to plot figure 2:    
-def algrthm(params,X):
+def algrthm(params,X,Y):
     prob=[]
     param=[]
     n,T=X.shape[0],X.shape[1]
@@ -74,31 +71,4 @@ def algrthm(params,X):
         file.write(param)
         file.close()    
     return prob
-# function to plot roc:
-y_test=np.hstack(X_True)
-def plot_ROC(y_score):
-    plt.figure()
-    lw = 2
-    #y_score=np.hstack(Train[2][j])
-    
-    fpr, tpr, thresholds = roc_curve(y_test, y_score,pos_label=1)
-    roc_auc = auc(fpr, tpr)
-    plt.plot(
-        fpr,
-        tpr,
-        color="darkorange",
-        lw=lw,
-        label="ROC curve (area = %0.2f)" % roc_auc,
-    )
-    plt.plot([0, 1], [0, 1], color="navy", lw=lw, linestyle="--")
-    plt.xlim([0.0, 1.0])
-    plt.ylim([0.0, 1.05])
-    plt.xlabel("False Positive Rate")
-    plt.ylabel("True Positive Rate")
-    plt.title("ROC for family test result problem")
-    plt.legend(loc="lower right")
-    plt.show()
-    return roc_auc
-
-unique_rows = np.unique(F, axis=0)
 
