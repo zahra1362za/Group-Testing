@@ -1,11 +1,9 @@
-print("hi im executing")
 # import neccessary libraries
 import numpy as np
 import random
 from datetime import datetime
 from scipy.stats import beta
 from sklearn.metrics import accuracy_score
-
 import os
 import Cod
 import matplotlib.pyplot as plt
@@ -29,8 +27,8 @@ b_teta0=1000
 a_teta1=9000
 b_teta1=300
 P=1
-U=3
-K=100
+U=1
+K=2
 J=1
 n,T=64,128
 epsln=0.001
